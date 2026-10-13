@@ -1,0 +1,101 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+ * Значения токенов (каналы RGB без запятых — так работает `bg-guard/20`).
+ * Светлая тема по умолчанию: на проекторе в светлой аудитории читается лучше.
+ */
+@layer base {
+  :root {
+    --c-bg:        246 247 250;
+    --c-surface:   255 255 255;
+    --c-surface-2: 241 243 247;
+    --c-surface-3: 228 231 237;
+    --c-border:    222 226 233;
+    --c-border-2:  196 202 212;
+    --c-text:      15 23 42;
+    --c-text-2:    71 85 105;
+    --c-muted:     148 158 175;
+    --c-accent:    37 99 235;
+    --c-shadow:    15 23 42;
+
+    --c-success: 22 163 74;
+    --c-warning: 217 119 6;
+    --c-danger:  220 38 38;
+
+    --c-client: 71 85 105;
+    --c-guard:  217 119 6;
+    --c-ctrl:   37 99 235;
+    --c-logic:  124 58 237;
+    --c-prisma: 13 148 136;
+    --c-db:     2 132 199;
+    --c-git:    234 88 12;
+
+    --c-code-bg:      17 24 39;
+    --c-code-line:    255 255 255;
+    --c-code-text:    226 232 240;
+    --c-code-keyword: 198 120 221;
+    --c-code-string:  152 195 121;
+    --c-code-comment: 127 132 142;
+    --c-code-fn:      97 175 239;
+    --c-code-type:    229 192 123;
+    --c-code-number:  209 154 102;
+    --c-code-deco:    86 182 194;
+    --c-code-prop:    224 108 117;
+  }
+
+  .dark {
+    --c-bg:        10 14 23;
+    --c-surface:   19 25 38;
+    --c-surface-2: 28 36 52;
+    --c-surface-3: 40 49 68;
+    --c-border:    44 54 74;
+    --c-border-2:  66 78 102;
+    --c-text:      236 240 246;
+    --c-text-2:    170 180 197;
+    --c-muted:     110 122 144;
+    --c-accent:    96 165 250;
+    --c-shadow:    0 0 0;
+
+    --c-success: 74 222 128;
+    --c-warning: 251 191 36;
+    --c-danger:  248 113 113;
+
+    --c-client: 148 163 184;
+    --c-guard:  251 191 36;
+    --c-ctrl:   96 165 250;
+    --c-logic:  167 139 250;
+    --c-prisma: 45 212 191;
+    --c-db:     56 189 248;
+    --c-git:    251 146 60;
+
+    --c-code-bg: 8 11 19;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+
+  html, body { height: 100%; }
+
+  body {
+    @apply bg-bg text-text antialiased font-sans;
+  }
+
+  /* Курсор прячется, когда лектор не двигает мышь (см. Deck). */
+  body.cursor-hidden, body.cursor-hidden * { cursor: none !important; }
+}
+
+/*
+ * Компонентные классы: связки утилит, которые повторяются на многих слайдах.
+ */
+@layer components {
+  .card { @apply bg-surface border-2 border-border rounded-2xl shadow-card; }
+
+  /* Моно-«чип» для команд и имён файлов: npm run migrate:up */
+  .chip {
+    @apply inline-flex items-center gap-2 rounded-xl border-2 px-3 py-1.5
+           font-mono text-[20px] font-medium leading-none whitespace-nowrap;
+  }
+
+  .eyebrow { @apply text-[20px] font-semibold uppercase tracking-[0.14em]; }
+}

@@ -1,6 +1,10 @@
-import { Blocks, Database } from 'lucide-react';
+import { Blocks, Database, Lightbulb } from 'lucide-react';
 import type { DeckDef, FolderDef } from '@/types';
+import { backendHallDeck } from './backend-hall';
 import { backendInsideDeck } from './backend-inside';
+import { backendKitchenDeck } from './backend-kitchen';
+import { dungeonInsideDeck } from './dungeon-inside';
+import { smartHomeDeck } from './smart-home';
 import { whatIsBackendDeck } from './what-is-backend';
 import { whatIsFrontendDeck } from './what-is-frontend';
 
@@ -20,10 +24,25 @@ export const FOLDERS: FolderDef[] = [
     tone: 'ctrl',
     icon: Database,
   },
+  {
+    id: 'applied',
+    title: 'Бэкенд в жизни',
+    description: 'Где ещё работает бэкенд: устройства, датчики, автоматизация',
+    tone: 'success',
+    icon: Lightbulb,
+  },
 ];
 
 /** Все презентации. Новая — папка в src/decks/<id>/ + строка здесь. */
-export const DECKS: DeckDef[] = [whatIsFrontendDeck, whatIsBackendDeck, backendInsideDeck];
+export const DECKS: DeckDef[] = [
+  whatIsFrontendDeck,
+  whatIsBackendDeck,
+  backendInsideDeck,
+  backendHallDeck,
+  backendKitchenDeck,
+  dungeonInsideDeck,
+  smartHomeDeck,
+];
 
 export function findDeck(id: string): DeckDef | undefined {
   return DECKS.find((d) => d.id === id);

@@ -36,6 +36,9 @@ src/
     index.ts           FOLDERS (папки) и DECKS (все презентации)
     <deck-id>/index.ts DeckDef: название, суть, темы, длительность + порядок слайдов
     <deck-id>/…        слайды; большая презентация — по подпапкам-разделам со своим index.ts
+    request/           не презентация: общее для «Зала» (backend-hall) и «Кухни» (backend-kitchen) —
+                       дополнения к backend-inside. Роли ресторана (ROLES, RoleBadge), карта, викторина,
+                       withRole(Slide, role) — слайд из backend-inside/request как есть + плашка роли в шапке
   lib/                 tones.ts (цвета слоёв), highlight.ts, motion.ts (EASE, SPRING, range), sections.ts (разделы)
   types/index.ts       DeckDef, FolderDef, SlideDef, SlideProps
 ```
@@ -67,14 +70,14 @@ src/
 | `Arrow from={[x,y]} to={[x,y]} curve label flow tone show` | рисующаяся SVG-стрелка в координатах родителя |
 | `FlowArrow length vertical label tone show` | короткая стрелка между элементами flex-ряда |
 | `Packet at={[x,y]} tone` | «пакет данных», перелетает при смене `at` |
-| `Code code lang hl={[3,4]} tone title size` | код с подсветкой строк (`range(3,6)` из lib/motion) |
+| `Code code lang hl={[3,4]} tone title size marks` | код с подсветкой строк (`range(3,6)` из lib/motion); `marks={{2:'guard'}}` — свои цвета строкам без приглушения |
 | `Terminal lines={[{text, kind:'cmd'\|'out'\|'ok'\|'err'\|'dim'}]}` | терминал, прижат к низу |
 | `DataTable title columns grid rows size` | строки БД; строки въезжают/схлопываются по `key` |
 | `SchemaCard name columns state` | структура таблицы; колонки `state: 'new'\|'removed'\|'hl'\|'dim'` |
 | `FileTree items` | дерево файлов, `state: 'hl'\|'new'\|'dim'\|'hidden'` |
 | `Chip tone solid size` | моно-плашка: команда, статус, имя файла |
 | `StepCaption step captions={[…]} tone` | крупная подпись «что сейчас происходит» внизу |
-| `SlideLayout`, `M` | каркас слайда, инлайн-код |
+| `SlideLayout aside`, `M` | каркас слайда (`aside` — плашка справа от заголовка; снаружи слайда — через `SlideAside`), инлайн-код |
 
 ## Цвета — только токены
 

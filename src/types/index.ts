@@ -15,6 +15,11 @@ export type SectionKey =
   | 'migrations'
   | 'prisma'
   | 'request'
+  | 'game'
+  | 'realtime'
+  | 'devices'
+  | 'protocols'
+  | 'home'
   | 'outro';
 
 export interface SectionDef {

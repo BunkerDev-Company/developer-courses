@@ -17,6 +17,8 @@ interface CodeProps {
   hl?: number[];
   /** Цвет полоски у подсвеченной строки. */
   tone?: Tone;
+  /** Разметка строк своими цветами без приглушения остальных: `{ 2: 'guard', 3: 'guard' }`. */
+  marks?: Partial<Record<number, Tone>>;
   /** Имя файла во вкладке сверху. */
   title?: React.ReactNode;
   size?: keyof typeof SIZE;
@@ -26,7 +28,7 @@ interface CodeProps {
 }
 
 /** Блок кода. Панель тёмная в обеих темах — так код читается на проекторе. */
-export function Code({ code, lang, hl, tone = 'accent', title, size = 'md', lineNumbers, className, style }: CodeProps) {
+export function Code({ code, lang, hl, tone = 'accent', marks, title, size = 'md', lineNumbers, className, style }: CodeProps) {
   const lines = useMemo(() => highlight(code, lang), [code, lang]);
   const focus = hl && hl.length > 0;
 
@@ -46,20 +48,21 @@ export function Code({ code, lang, hl, tone = 'accent', title, size = 'md', line
         {lines.map((tokens, i) => {
           const n = i + 1;
           const on = focus && hl.includes(n);
+          const mark = marks?.[n];
           return (
             <div
               key={i}
               className={cn(
                 'relative px-6 transition-[opacity,background-color] duration-300',
-                on && 'bg-code-line/[0.09]',
+                (on || mark) && 'bg-code-line/[0.09]',
                 focus && !on && 'opacity-30',
               )}
             >
               <span
                 className={cn(
                   'absolute inset-y-0 left-0 w-1.5 transition-opacity duration-300',
-                  TONE[tone].bg,
-                  on ? 'opacity-100' : 'opacity-0',
+                  TONE[mark ?? tone].bg,
+                  on || mark ? 'opacity-100' : 'opacity-0',
                 )}
               />
               {lineNumbers && (

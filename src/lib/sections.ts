@@ -9,6 +9,11 @@ export const SECTIONS: Record<SectionKey, SectionDef> = {
   migrations: { key: 'migrations', label: 'Миграции',      tone: 'git' },
   prisma:     { key: 'prisma',     label: 'Prisma',        tone: 'prisma' },
   request:    { key: 'request',    label: 'Путь запроса',  tone: 'ctrl' },
+  game:       { key: 'game',       label: 'Игра',          tone: 'accent' },
+  realtime:   { key: 'realtime',   label: 'Реальное время', tone: 'logic' },
+  devices:    { key: 'devices',    label: 'Устройство',    tone: 'warning' },
+  protocols:  { key: 'protocols',  label: 'Связь',         tone: 'prisma' },
+  home:       { key: 'home',       label: 'Умный дом',     tone: 'success' },
   outro:      { key: 'outro',      label: 'Итоги',         tone: 'success' },
 };
 

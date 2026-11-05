@@ -1,9 +1,11 @@
-import { Blocks, Database, Lightbulb } from 'lucide-react';
+import { Blocks, BriefcaseBusiness, Database, Lightbulb } from 'lucide-react';
 import type { DeckDef, FolderDef } from '@/types';
 import { backendHallDeck } from './backend-hall';
 import { backendInsideDeck } from './backend-inside';
 import { backendKitchenDeck } from './backend-kitchen';
 import { dungeonInsideDeck } from './dungeon-inside';
+import { itCareerDeck } from './it-career';
+import { itCompanyDeck } from './it-company';
 import { smartHomeDeck } from './smart-home';
 import { whatIsBackendDeck } from './what-is-backend';
 import { whatIsFrontendDeck } from './what-is-frontend';
@@ -31,6 +33,13 @@ export const FOLDERS: FolderDef[] = [
     tone: 'success',
     icon: Lightbulb,
   },
+  {
+    id: 'career',
+    title: 'Работа в IT',
+    description: 'Как устроены IT-компании изнутри: роли, процессы, культура, карьера',
+    tone: 'git',
+    icon: BriefcaseBusiness,
+  },
 ];
 
 /** Все презентации. Новая — папка в src/decks/<id>/ + строка здесь. */
@@ -42,6 +51,8 @@ export const DECKS: DeckDef[] = [
   backendKitchenDeck,
   dungeonInsideDeck,
   smartHomeDeck,
+  itCompanyDeck,
+  itCareerDeck,
 ];
 
 export function findDeck(id: string): DeckDef | undefined {

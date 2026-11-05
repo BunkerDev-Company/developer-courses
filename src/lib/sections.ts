@@ -14,6 +14,14 @@ export const SECTIONS: Record<SectionKey, SectionDef> = {
   devices:    { key: 'devices',    label: 'Устройство',    tone: 'warning' },
   protocols:  { key: 'protocols',  label: 'Связь',         tone: 'prisma' },
   home:       { key: 'home',       label: 'Умный дом',     tone: 'success' },
+  company:    { key: 'company',    label: 'Компания',      tone: 'accent' },
+  team:       { key: 'team',       label: 'Команда',       tone: 'git' },
+  meetings:   { key: 'meetings',   label: 'Встречи',       tone: 'prisma' },
+  culture:    { key: 'culture',    label: 'Культура',      tone: 'guard' },
+  hiring:     { key: 'hiring',     label: 'Как попасть',   tone: 'guard' },
+  internship: { key: 'internship', label: 'Стажировка',    tone: 'warning' },
+  grades:     { key: 'grades',     label: 'Грейды',        tone: 'logic' },
+  growth:     { key: 'growth',     label: 'Развитие',      tone: 'git' },
   outro:      { key: 'outro',      label: 'Итоги',         tone: 'success' },
 };
 

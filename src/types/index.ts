@@ -20,6 +20,14 @@ export type SectionKey =
   | 'devices'
   | 'protocols'
   | 'home'
+  | 'company'
+  | 'team'
+  | 'meetings'
+  | 'culture'
+  | 'hiring'
+  | 'internship'
+  | 'grades'
+  | 'growth'
   | 'outro';
 
 export interface SectionDef {

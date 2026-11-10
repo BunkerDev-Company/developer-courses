@@ -28,6 +28,11 @@ export type SectionKey =
   | 'internship'
   | 'grades'
   | 'growth'
+  | 'agile'
+  | 'scrum'
+  | 'kanban'
+  | 'task'
+  | 'code'
   | 'outro';
 
 export interface SectionDef {

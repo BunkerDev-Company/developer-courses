@@ -1,9 +1,11 @@
 'use client';
 
-import { MoonStar, Presentation } from 'lucide-react';
+import { ArrowRight, ClipboardCheck, MoonStar, Presentation } from 'lucide-react';
+import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { DECKS, FOLDERS } from '@/decks';
+import { MODULES, TOTAL_QUESTIONS } from '@/features/team-challenge/content';
 import { initTheme, toggleTheme } from '@/lib/theme';
 import { TONE } from '@/lib/tones';
 import { cn } from '@/lib/utils';
@@ -66,7 +68,29 @@ export function Library() {
         </div>
       </header>
 
-      <main className="mx-auto grid max-w-7xl gap-10 px-8 py-10 lg:grid-cols-[minmax(0,1fr)_460px]">
+      <div className="mx-auto max-w-7xl px-8 pt-10">
+        <Link
+          href="/interactive"
+          className="group flex flex-col gap-5 rounded-2xl border-2 border-success/40 bg-success/10 p-6 shadow-card transition-all hover:-translate-y-0.5 hover:border-success/70 hover:shadow-lift sm:flex-row sm:items-center"
+        >
+          <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-success text-white">
+            <ClipboardCheck size={29} />
+          </span>
+          <span className="min-w-0 flex-1">
+            <span className="mb-1 block text-sm font-semibold uppercase tracking-wider text-success">Самостоятельная работа</span>
+            <span className="block text-2xl font-bold leading-tight">Интерактив: бэкенд, культура и командная разработка</span>
+            <span className="mt-1 block text-text-2">
+              {MODULES.length} {plural(MODULES.length, 'блок', 'блока', 'блоков')} · {TOTAL_QUESTIONS}{' '}
+              {plural(TOTAL_QUESTIONS, 'вопрос', 'вопроса', 'вопросов')} · ≈25 минут · в конце — код для преподавателя
+            </span>
+          </span>
+          <span className="inline-flex items-center gap-2 font-semibold text-success">
+            Начать <ArrowRight size={20} className="transition-transform group-hover:translate-x-1" />
+          </span>
+        </Link>
+      </div>
+
+      <main className="mx-auto grid max-w-7xl gap-10 px-8 pb-10 pt-8 lg:grid-cols-[minmax(0,1fr)_460px]">
         <div className="space-y-12">
           {FOLDERS.map((folder) => {
             const decks = DECKS.filter((d) => d.folder === folder.id);

@@ -27,6 +27,7 @@ src/
   app/
     page.tsx           главная: папки и карточки презентаций
     p/[id]/page.tsx    презентация
+    interactive/       самостоятельная работа студента (/interactive) и сверка кода преподавателем (/interactive/verify)
     layout.tsx, globals.css (значения токенов)
   components/
     deck/              Deck (навигация, клавиши, переходы, шапка), Stage (1600×900), Progress, Notes, Overview
@@ -39,6 +40,8 @@ src/
     request/           не презентация: общее для «Зала» (backend-hall) и «Кухни» (backend-kitchen) —
                        дополнения к backend-inside. Роли ресторана (ROLES, RoleBadge), карта, викторина,
                        withRole(Slide, role) — слайд из backend-inside/request как есть + плашка роли в шапке
+  features/team-challenge/  интерактив: content.ts — блоки, экраны и вопросы (каждый вопрос — по материалу своего блока);
+                       proof.ts — код подтверждения из кода студента (соль `scope` не менять — выданные коды сломаются)
   lib/                 tones.ts (цвета слоёв), highlight.ts, motion.ts (EASE, SPRING, range), sections.ts (разделы)
   types/index.ts       DeckDef, FolderDef, SlideDef, SlideProps
 ```

@@ -1,4 +1,4 @@
-import { Blocks, BriefcaseBusiness, Database, Lightbulb } from 'lucide-react';
+import { Blocks, BriefcaseBusiness, Database, Lightbulb, Workflow } from 'lucide-react';
 import type { DeckDef, FolderDef } from '@/types';
 import { backendHallDeck } from './backend-hall';
 import { backendInsideDeck } from './backend-inside';
@@ -7,6 +7,7 @@ import { dungeonInsideDeck } from './dungeon-inside';
 import { itCareerDeck } from './it-career';
 import { itCompanyDeck } from './it-company';
 import { smartHomeDeck } from './smart-home';
+import { teamToolsDeck } from './team-tools';
 import { whatIsBackendDeck } from './what-is-backend';
 import { whatIsFrontendDeck } from './what-is-frontend';
 
@@ -40,6 +41,13 @@ export const FOLDERS: FolderDef[] = [
     tone: 'git',
     icon: BriefcaseBusiness,
   },
+  {
+    id: 'teamwork',
+    title: 'Командная разработка',
+    description: 'Как команда делает продукт вместе: Agile, трекер, git, ревью и CI',
+    tone: 'ctrl',
+    icon: Workflow,
+  },
 ];
 
 /** Все презентации. Новая — папка в src/decks/<id>/ + строка здесь. */
@@ -53,6 +61,7 @@ export const DECKS: DeckDef[] = [
   smartHomeDeck,
   itCompanyDeck,
   itCareerDeck,
+  teamToolsDeck,
 ];
 
 export function findDeck(id: string): DeckDef | undefined {

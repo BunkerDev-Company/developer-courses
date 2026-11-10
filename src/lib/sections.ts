@@ -22,6 +22,11 @@ export const SECTIONS: Record<SectionKey, SectionDef> = {
   internship: { key: 'internship', label: 'Стажировка',    tone: 'warning' },
   grades:     { key: 'grades',     label: 'Грейды',        tone: 'logic' },
   growth:     { key: 'growth',     label: 'Развитие',      tone: 'git' },
+  agile:      { key: 'agile',      label: 'Agile',         tone: 'accent' },
+  scrum:      { key: 'scrum',      label: 'Scrum',         tone: 'ctrl' },
+  kanban:     { key: 'kanban',     label: 'Kanban',        tone: 'prisma' },
+  task:       { key: 'task',       label: 'Задача',        tone: 'guard' },
+  code:       { key: 'code',       label: 'Код в команде', tone: 'git' },
   outro:      { key: 'outro',      label: 'Итоги',         tone: 'success' },
 };
 
